@@ -9,13 +9,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <h2>My App</h2>
+      <h2>La Garåge</h2>
       <Routes>
         <Route path='/auth' element={<AuthPage />} />
         <Route element={<ProtectedRoutes />}>
           <Route path='/dashboard' element={<Dashboard />} />
         </Route>
-        <Route path='*' element={<h1>404 Page Not Found</h1>} />
+       
       </Routes>
     </>
   );

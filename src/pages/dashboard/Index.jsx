@@ -1,16 +1,22 @@
 import { useAuth } from "../../context/auth/auth_context";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 
 const Dashboard = () => {
+  const { logout, cookies } = useAuth();
   const nav = useNavigate();
-  const { logout } = useAuth();
+  
 
   function handleLogout() {
     logout();
     nav("/auth");
   }
+
+  useEffect(() => {
+    console.log(cookies);
+  },[]);
 
   return (
     <div>
