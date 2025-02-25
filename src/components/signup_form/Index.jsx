@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { useAuth } from '../../context/auth/auth_context';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = ({ setNewUser }) => {
+  const nav = useNavigate(); // Initialized useNavigate into variable
+  const { signUp } = useAuth(); // Destructure the signUp from context
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -8,7 +12,15 @@ const SignUp = ({ setNewUser }) => {
     password2: '',
   });
 
-  function handleSubmit(e) {}
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (password !== password2) {
+      alert('Passwords do not match');
+    } else {
+      await signUp(formData);
+      nav('/dashboard');
+    }
+  }
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,7 +33,7 @@ const SignUp = ({ setNewUser }) => {
   return (
     <div className='forms'>
       <h2>SignUp</h2>
-      <form autoComplete='off'>
+      <form autoComplete='off' onSubmit={handleSubmit}>
         <label htmlFor='name1'>Name: </label>
         <input
           onChange={handleChange}
@@ -30,6 +42,7 @@ const SignUp = ({ setNewUser }) => {
           name='name'
           placeholder='First and Last Name'
         />
+
         <label htmlFor='email1'>Email: </label>
         <input
           onChange={handleChange}
@@ -38,6 +51,7 @@ const SignUp = ({ setNewUser }) => {
           name='email'
           placeholder='Email'
         />
+
         <label htmlFor='password1'>Password: </label>
         <input
           onChange={handleChange}
@@ -47,6 +61,7 @@ const SignUp = ({ setNewUser }) => {
           placeholder='Password'
           minLength='6'
         />
+
         <input
           onChange={handleChange}
           type='password'
@@ -55,6 +70,7 @@ const SignUp = ({ setNewUser }) => {
           placeholder='Confirm Password'
           minLength='6'
         />
+
         <button type='submit'>Sign In</button>
       </form>
       <p>
