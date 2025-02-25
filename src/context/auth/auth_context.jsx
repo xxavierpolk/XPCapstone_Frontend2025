@@ -35,11 +35,36 @@ export default function AuthProvider({ children}) {
 
     // Register Function
     async function signUp(formData) {
-        
+        try {
+            // Make a POST request to the backend with the form data
+            const response = await fetch('http://localhost:3000/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+    
+            });
+            const data = await response.json();
+
+            // Take the token from the response and store it in a cookie
+            setCookie('token', data.token);
+            return data;
+        } catch (error) {
+            console.error(error);
+            return { errors: [{ msg: 'Server Error' }] };
+        }
     }
 
     // Logout Function
-    function logout() {}
+    function logout() {
+        ['token'].forEach((cookie) => {
+            removeCookie(cookie);
+        });
+    }
 
-    return <AuthContext.Provider value={}>{children}</AuthContext.Provider>;
+    
+
+    return <AuthContext.Provider>{children}</AuthContext.Provider>;
+}
 }
