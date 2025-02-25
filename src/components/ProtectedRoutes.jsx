@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom"
-import { useAuth } from "../context/auth_context"
+import { useAuth } from "../context/auth/auth_context"
+
 
 
 export default function ProtectedRoutes() {
