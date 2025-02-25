@@ -14,7 +14,7 @@ const SignUp = ({ setNewUser }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (password !== password2) {
+    if (  formData.password !==   formData.password2) {
       alert('Passwords do not match');
     } else {
       await signUp(formData);
