@@ -9,7 +9,7 @@ Description
 
 🛠️ Tech Stack
 
-Frontend: React, React Router, useState, useEffect
+Frontend: React, React Router, useState, useEffect, Vite
 
 Backend: Node.js, Express.js, MongoDB, Mongoose
 
