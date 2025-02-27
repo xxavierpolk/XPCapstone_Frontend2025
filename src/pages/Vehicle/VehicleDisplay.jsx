@@ -29,6 +29,18 @@ export default function VehicleDisplay() {
         
     }, []);
 
+    // async function handleDelete() {
+    //     try {
+    //         await fetch('http://localhost:3000/api/vehicles/${}', {
+    //             method: 'DELETE',
+    //             headers: { 'Content-Type': 'application/json'}
+    //         })
+    //         nav('/dashboard');
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
 
     function handleEdit() {
         setIsEditing(true)
@@ -53,6 +65,9 @@ export default function VehicleDisplay() {
             <button 
             onClick={handleEdit}>Edit
             </button>
+            {/* <button 
+            onClick={handleDelete}>Delete
+            </button> */}
         </div>
         )
     }

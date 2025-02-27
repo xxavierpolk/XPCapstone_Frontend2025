@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 
 
 export default function VehicleEditForm({vehicleData}) {
+
+    const { id } = useParams();
 
     const [formData, setFormData] = useState({
         "make": vehicleData.make,
@@ -47,17 +50,17 @@ export default function VehicleEditForm({vehicleData}) {
       <label htmlFor='model'></label>
       <input id='model' name='model' type='text' placeholder='Model' onChange={handleChange} />
 
+      <label htmlFor='year'></label>
+      <input id='year' name='year' type='text' placeholder='Year' onChange={handleChange} />
+
       <label htmlFor='color'></label>
-      <input id='color' name='year' type='text' placeholder='Year' onChange={handleChange} />
+      <input id='color' name='color' type='text' placeholder='Color' onChange={handleChange} />
 
-      <label htmlFor='make'></label>
-      <input id='make' name='color' type='text' placeholder='Color' onChange={handleChange} />
+      <label htmlFor='mileage'></label>
+      <input id='mileage' name='mileage' type='text' placeholder='Mileage' onChange={handleChange} />
 
-      <label htmlFor='model'></label>
-      <input id='model' name='mileage' type='text' placeholder='Mileage' onChange={handleChange} />
-
-      {/* <input type='submit'/> */}
-      <button >Submit</button>
+      <input type='submit'/>
+      
          </form>
         </>
     )
