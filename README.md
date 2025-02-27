@@ -1,6 +1,6 @@
 Description
 
-🚗 LA GARÅGE is a full-stack MERN application that allows car enthusiasts and collectors to digitally manage their vehicles. Users can create an account, add cars to their virtual garage, update details, and remove vehicles.
+🚗 LA GARÅGE is a full-stack MERN application that allows car enthusiasts, collectors and mechanics to digitally store and manage their vehicles in their personal collection. Users can create an account, add cars to their virtual garage, update details, and remove vehicles.
 
 
 📌 Features
